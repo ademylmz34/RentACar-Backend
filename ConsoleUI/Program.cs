@@ -14,8 +14,14 @@ namespace ConsoleUI
             //AddingBrands();
             //AddingColors();
             //CarTest();
+            //RentalTest();
+
+        }
+
+        private static void RentalTest()
+        {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            var result=rentalManager.Add(new Rental() { CarId = 1, CustomerId = 2, RentDate =DateTime.Now});
+            var result = rentalManager.Add(new Rental() { CarId = 1, CustomerId = 2, RentDate = DateTime.Now.Date, ReturnDate = null });
             if (result.Success == true)
             {
                 Console.WriteLine(result.Message);
@@ -25,6 +31,7 @@ namespace ConsoleUI
                 Console.WriteLine(result.Message);
             }
         }
+
         private static void CarTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
