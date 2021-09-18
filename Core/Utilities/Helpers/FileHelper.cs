@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Core.Utilities.Helpers
 {
-    public class FileHelper
+    public class FileHelper //sql veritabanına resim ekleme işlemleri buradan yapılır.
     {
         public static string Add(IFormFile file)
         {
