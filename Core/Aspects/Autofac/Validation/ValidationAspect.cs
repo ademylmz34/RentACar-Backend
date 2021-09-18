@@ -23,7 +23,7 @@ namespace Core.Aspects.Autofac.Validation
         }
         protected override void OnBefore(IInvocation invocation)
         {
-            var validator = (IValidator)Activator.CreateInstance(_validatorType);
+            var validator = (IValidator)Activator.CreateInstance(_validatorType);//IValidator validator=new CarValidator(); etc.
             //reflection. Activator.CreateInstance Çalışma anında ProductValidator ın ınstance ını oluştur diyor.
             var entityType = _validatorType.BaseType.GetGenericArguments()[0];
             //productValidator un baseType ını yani AbstractValidator u bul ve onun generic argumanlarından ilkini bul.

@@ -12,5 +12,6 @@ namespace Business.Constants
         public static string Listed = "Listeleme işlemi başarılı";
         public static string CarNotAvailable = "Araba Teslim Edilmedi";
         public static string Error = "İşlem Başarısız";
+        public static string CarImageLimitExceeded="Araba resmi ekleme limiti dolmuştur.";
     }
 }
