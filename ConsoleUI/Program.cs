@@ -14,42 +14,53 @@ namespace ConsoleUI
             //AddingBrands();
             //AddingColors();
             //CarTest();
-            //RentalTest();
+            RentalTest();
 
         }
 
         private static void RentalTest()
         {
-            RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            var result = rentalManager.Add(new Rental() { CarId = 1, CustomerId = 2, RentDate = DateTime.Now.Date, ReturnDate = null });
-            if (result.Success == true)
-            {
-                Console.WriteLine(result.Message);
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
+            RentalManager rentalmanager = new RentalManager(new EfRentalDal());
+            Rental rental = new Rental() {Id=2, CarId=1, CustomerId = 2, RentDate = DateTime.Now.Date, ReturnDate = DateTime.Parse("26/09/2021") };
+            Rental rental1 = new Rental() { Id = 3, CarId = 2, CustomerId = 3, RentDate = DateTime.Now.Date, ReturnDate = DateTime.Parse("29/09/2021") };
+            Rental rental2 = new Rental() { Id = 4, CarId = 3, CustomerId = 1, RentDate = DateTime.Now.Date, ReturnDate = DateTime.Parse("30/09/2021") };
+            Rental rental3 = new Rental() { Id = 5, CarId = 4, CustomerId = 4, RentDate = DateTime.Now.Date, ReturnDate = DateTime.Parse("05/10/2021") };
+            Rental rental4 = new Rental() { Id = 6, CarId = 5, CustomerId = 2, RentDate = DateTime.Now.Date, ReturnDate = DateTime.Parse("10/10/2021") };
+            rentalmanager.Update(rental);
+            rentalmanager.Update(rental1);
+            rentalmanager.Update(rental2);
+            rentalmanager.Update(rental3);
+            rentalmanager.Update(rental4);
+            Console.ReadKey();
+            //var result = rentalmanager.Add(rental);
+            //if (result.Success == true)
+            //{
+            //    Console.WriteLine(result.Message);
+            //}
+            //else
+            //{
+            //    Console.WriteLine(result.Message);
+            //}
         }
 
-        private static void CarTest()
-        {
-            CarManager carManager = new CarManager(new EfCarDal());
-            var result = carManager.GetCarDetails();
-            if(result.Success)
-            {
-                foreach (var car in result.Data)
-                {
-                    Console.WriteLine("{0} - {1} - {2} - {3}", car.CarName, car.BrandName, car.ColorName, car.DailyPrice);
-                }
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
+        //private static void CarTest()
+        //{
+        //    CarManager carManager = new CarManager(new EfCarDal());
+        //    var result = carManager.GetCarDetails();
+        //    if(result.Success)
+        //    {
+        //        foreach (var car in result.Data)
+        //        {
+        //            Console.WriteLine("{0} - {1} - {2} - {3}", car.CarName, car.BrandName, car.ColorName, car.DailyPrice);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
 
 
-        }
+        //}
 
         private static void AddingColors()
         {
